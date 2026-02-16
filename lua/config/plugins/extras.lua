@@ -331,10 +331,61 @@ return {
           [".*%.env%..*"]          = "sh",
 
           -- Cron
-          ["/etc/cron%.d/.*"]      = "crontab",
-          ["/etc/cron%..*"]        = "crontab",
-        },
-      })
-    end,
-  },
+            ["/etc/cron%.d/.*"]      = "crontab",
+            ["/etc/cron%..*"]        = "crontab",
+          },
+        })
+      end,
+    },
+
+    -- ── Rainbow delimiters — colorful nested brackets ────────
+    {
+      "HiPhish/rainbow-delimiters.nvim",
+      event = { "BufReadPost", "BufNewFile" },
+      config = function()
+        local rainbow = require("rainbow-delimiters")
+        vim.g.rainbow_delimiters = {
+          strategy = {
+            [""]  = rainbow.strategy["global"],
+            vim   = rainbow.strategy["local"],
+          },
+          query = {
+            [""]  = "rainbow-delimiters",
+            lua   = "rainbow-blocks",
+          },
+          highlight = {
+            "RainbowDelimiterRed",
+            "RainbowDelimiterYellow",
+            "RainbowDelimiterBlue",
+            "RainbowDelimiterOrange",
+            "RainbowDelimiterGreen",
+            "RainbowDelimiterViolet",
+            "RainbowDelimiterCyan",
+          },
+        }
+        -- Custom rainbow colors matching our theme
+        vim.api.nvim_set_hl(0, "RainbowDelimiterRed",    { fg = "#f7768e" })
+        vim.api.nvim_set_hl(0, "RainbowDelimiterYellow", { fg = "#e0af68" })
+        vim.api.nvim_set_hl(0, "RainbowDelimiterBlue",   { fg = "#7aa2f7" })
+        vim.api.nvim_set_hl(0, "RainbowDelimiterOrange", { fg = "#ff9e64" })
+        vim.api.nvim_set_hl(0, "RainbowDelimiterGreen",  { fg = "#73daca" })
+        vim.api.nvim_set_hl(0, "RainbowDelimiterViolet", { fg = "#bb9af7" })
+        vim.api.nvim_set_hl(0, "RainbowDelimiterCyan",   { fg = "#7dcfff" })
+      end,
+    },
+
+    -- ── Colorizer — show hex color previews inline ───────────
+    {
+      "norcalli/nvim-colorizer.lua",
+      event = { "BufReadPost", "BufNewFile" },
+      config = function()
+        require("colorizer").setup({
+          "*",
+          css  = { css = true },
+          html = { names = true },
+        }, {
+          mode = "background",
+        })
+      end,
+    },
 }
