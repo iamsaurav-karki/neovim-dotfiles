@@ -17,10 +17,24 @@ map("n", "<C-Down>",  ":resize +2<CR>",          opts)
 map("n", "<C-Left>",  ":vertical resize -2<CR>", opts)
 map("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
--- Buffer navigation
-map("n", "<S-l>", ":bnext<CR>",     opts)
-map("n", "<S-h>", ":bprevious<CR>", opts)
-map("n", "<leader>bd", ":bdelete<CR>", opts)
+-- Buffer navigation (VS Code-style tabs)
+map("n", "<S-l>",      ":BufferLineCycleNext<CR>",          opts)   -- next tab
+map("n", "<S-h>",      ":BufferLineCyclePrev<CR>",          opts)   -- prev tab
+map("n", "<Tab>",      ":BufferLineCycleNext<CR>",          opts)   -- Tab = next tab
+map("n", "<S-Tab>",    ":BufferLineCyclePrev<CR>",          opts)   -- Shift+Tab = prev tab
+map("n", "<leader>bd", ":Bdelete<CR>",                      opts)   -- close tab (keep layout)
+map("n", "<leader>bo", ":BufferLineCloseOthers<CR>",        opts)   -- close all other tabs
+map("n", "<leader>bl", ":BufferLineCloseRight<CR>",         opts)   -- close tabs to the right
+map("n", "<leader>bh", ":BufferLineCloseLeft<CR>",          opts)   -- close tabs to the left
+map("n", "<leader>bp", ":BufferLineTogglePin<CR>",          opts)   -- pin/unpin tab
+map("n", "<leader>bs", ":BufferLineSortByDirectory<CR>",    opts)   -- sort tabs by directory
+map("n", "<leader>b1", ":BufferLineGoToBuffer 1<CR>",       opts)   -- jump to tab 1
+map("n", "<leader>b2", ":BufferLineGoToBuffer 2<CR>",       opts)   -- jump to tab 2
+map("n", "<leader>b3", ":BufferLineGoToBuffer 3<CR>",       opts)   -- jump to tab 3
+map("n", "<leader>b4", ":BufferLineGoToBuffer 4<CR>",       opts)   -- jump to tab 4
+map("n", "<leader>b5", ":BufferLineGoToBuffer 5<CR>",       opts)   -- jump to tab 5
+map("n", "<A-Right>",  ":BufferLineMoveNext<CR>",           opts)   -- move tab right
+map("n", "<A-Left>",   ":BufferLineMovePrev<CR>",           opts)   -- move tab left
 
 -- Clear search highlight
 map("n", "<Esc>", ":nohlsearch<CR>", opts)

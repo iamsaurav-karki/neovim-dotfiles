@@ -29,6 +29,7 @@ return {
         },
         integrations = {
           alpha            = true,
+          bufferline       = true,
           cmp              = true,
           gitsigns         = true,
           nvimtree         = true,
