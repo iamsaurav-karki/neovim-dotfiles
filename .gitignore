@@ -1,0 +1,7 @@
+# Neovim generated data
+plugin/
+lazy-lock.json
+
+# OS
+.DS_Store
+Thumbs.db
