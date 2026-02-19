@@ -58,12 +58,15 @@ map("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 -- ── Telescope ───────────────────────────────────────────────
 map("n", "<leader>ff", "<cmd>Telescope find_files<CR>",  { desc = "Find files" })
 map("n", "<leader>fg", "<cmd>Telescope live_grep<CR>",   { desc = "Live grep" })
+map("n", "<leader>fw", "<cmd>Telescope grep_string search=<CR>", { desc = "Full text grep (type to search)" })
 map("n", "<leader>fb", "<cmd>Telescope buffers<CR>",     { desc = "Buffers" })
 map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>",   { desc = "Help tags" })
 map("n", "<leader>fc", "<cmd>Telescope commands<CR>",    { desc = "Commands" })
 map("n", "<leader>fr", "<cmd>Telescope oldfiles<CR>",    { desc = "Recent files" })
 map("n", "<leader>fd", "<cmd>Telescope diagnostics<CR>", { desc = "Diagnostics" })
 map("n", "<leader>fs", "<cmd>Telescope lsp_document_symbols<CR>", { desc = "Document symbols" })
+-- Search word under cursor across all files
+map("n", "<leader>fW", "<cmd>Telescope grep_string<CR>", { desc = "Grep word under cursor" })
 
 -- ── LSP (attached via on_attach in lsp.lua) ─────────────────
 -- These are set buffer-locally in lsp.lua on_attach.
