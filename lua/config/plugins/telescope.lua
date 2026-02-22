@@ -46,9 +46,19 @@ return {
           },
           mappings = {
             i = {
-              ["<C-j>"] = actions.move_selection_next,
-              ["<C-k>"] = actions.move_selection_previous,
-              ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+              ["<C-j>"]  = actions.move_selection_next,
+              ["<C-k>"]  = actions.move_selection_previous,
+              ["<C-q>"]  = actions.send_selected_to_qflist + actions.open_qflist,
+              ["<C-c>"]  = actions.close,                        -- Ctrl+C = close
+              ["<C-v>"]  = { "<C-r>+", type = "command" },      -- Ctrl+V = paste from system clipboard
+              ["<C-p>"]  = { "<C-r>+", type = "command" },      -- Ctrl+P = paste from clipboard (alt)
+              ["<C-a>"]  = { "<Home>", type = "command" },       -- Ctrl+A = start of line
+              ["<C-e>"]  = { "<End>", type = "command" },        -- Ctrl+E = end of line
+              ["<C-u>"]  = false,                                -- Ctrl+U = clear prompt
+              ["<C-w>"]  = { "<C-S-w>", type = "command" },     -- Ctrl+W = delete word back
+            },
+            n = {
+              ["q"]      = actions.close,
               ["<Esc>"]  = actions.close,
             },
           },
