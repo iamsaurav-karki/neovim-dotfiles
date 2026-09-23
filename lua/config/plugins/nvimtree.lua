@@ -89,7 +89,7 @@ return {
         },
         filters = {
           dotfiles = false,
-          custom   = { ".git", "node_modules", ".terraform", "__pycache__" },
+          custom   = { "^%.git$", "node_modules", ".terraform", "__pycache__" },
         },
         git = {
           enable  = true,
